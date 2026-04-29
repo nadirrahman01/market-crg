@@ -24,25 +24,6 @@ const TOPIC_RULES = [
   { label: "Commodities", searchTerm: "commodities", patterns: ["commodities", "commodity", "farm", "palladium", "platinum"] },
 ];
 
-const THEME_RULES = [
-  { label: "Inflation", query: "inflation", patterns: ["inflation", "cpi", "prices"] },
-  { label: "US Rates", query: "rates", patterns: ["fed", "treasury", "yield", "yields", "rate", "rate cut", "rate hike"] },
-  { label: "ECB", query: "ecb", patterns: ["ecb", "european central bank"] },
-  { label: "Fed", query: "fed", patterns: ["fed", "federal reserve", "powell"] },
-  { label: "China", query: "china", patterns: ["china", "beijing", "yuan"] },
-  { label: "Gold", query: "gold", patterns: ["gold", "bullion"] },
-  { label: "Oil", query: "oil", patterns: ["oil", "crude", "brent", "wti"] },
-  { label: "OPEC", query: "opec", patterns: ["opec", "opec+"] },
-  { label: "Bonds", query: "bonds", patterns: ["bond", "bonds", "treasury", "t-bills", "yield", "yields"] },
-  { label: "Central Banks", query: "central bank", patterns: ["central bank", "bank of england", "bank of canada", "ecb", "fed", "boe", "boj", "rbi", "rba"] },
-  { label: "Risk", query: "risk", patterns: ["risk", "war", "conflict", "iran", "sanctions", "hormuz"] },
-  { label: "Growth", query: "growth", patterns: ["growth", "gdp", "recession", "economy"] },
-  { label: "Europe", query: "europe", patterns: ["europe", "european", "germany", "greece", "uk"] },
-  { label: "Housing", query: "housing", patterns: ["housing", "mortgage", "building permits"] },
-  { label: "Equities", query: "stocks", patterns: ["stocks", "equities", "earnings", "futures"] },
-  { label: "Commodities", query: "commodities", patterns: ["commodities", "commodity", "farm"] },
-];
-
 const NEGATIVE_PATTERNS = [
   "decline",
   "shrinks",
@@ -91,12 +72,8 @@ const pulseCategory = document.querySelector("[data-pulse-category]");
 const pulseLatest = document.querySelector("[data-pulse-latest]");
 const marketSummary = document.querySelector("#market-summary");
 const topicList = document.querySelector("#trending-topics");
-const themeCloud = document.querySelector("#theme-cloud");
-const navToggle = document.querySelector("[data-nav-toggle]");
-const headerActions = document.querySelector("[data-header-actions]");
 
 renderCategoryPills();
-wireNavigation();
 wireControls();
 loadStories();
 
@@ -105,7 +82,6 @@ async function loadStories() {
   feedList.innerHTML = `<div class="loading-state">Loading live market feed…</div>`;
   marketSummary.textContent = "Loading the current market brief…";
   topicList.innerHTML = "";
-  themeCloud.innerHTML = "";
 
   try {
     const response = await fetch("data/feed.json");
@@ -127,36 +103,11 @@ async function loadStories() {
     feedList.innerHTML = `<div class="empty-state">${message}</div>`;
     marketSummary.textContent = message;
     topicList.innerHTML = "";
-    themeCloud.innerHTML = "";
     pulseNew.textContent = "—";
     pulseCategory.textContent = "—";
     pulseLatest.textContent = "—";
     console.error(error);
   }
-}
-
-function wireNavigation() {
-  if (!navToggle || !headerActions) {
-    return;
-  }
-
-  navToggle.addEventListener("click", () => {
-    const isOpen = headerActions.classList.toggle("is-open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!headerActions.classList.contains("is-open")) {
-      return;
-    }
-
-    if (headerActions.contains(event.target) || navToggle.contains(event.target)) {
-      return;
-    }
-
-    headerActions.classList.remove("is-open");
-    navToggle.setAttribute("aria-expanded", "false");
-  });
 }
 
 function wireControls() {
@@ -170,30 +121,25 @@ function wireControls() {
     render();
   });
 
-  const wireQueryContainer = (container) => {
-    container.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-query]");
-      if (!button) {
-        return;
-      }
+  topicList.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-query]");
+    if (!button) {
+      return;
+    }
 
-      const query = button.dataset.query?.toLowerCase() || "";
-      const label = button.dataset.label || query;
+    const query = button.dataset.query?.toLowerCase() || "";
+    const label = button.dataset.label || query;
 
-      if (state.search === query) {
-        state.search = "";
-        searchInput.value = "";
-      } else {
-        state.search = query;
-        searchInput.value = label;
-      }
+    if (state.search === query) {
+      state.search = "";
+      searchInput.value = "";
+    } else {
+      state.search = query;
+      searchInput.value = label;
+    }
 
-      render();
-    });
-  };
-
-  wireQueryContainer(topicList);
-  wireQueryContainer(themeCloud);
+    render();
+  });
 }
 
 function renderCategoryPills() {
@@ -254,14 +200,12 @@ function renderMarketIntelligence(stories) {
     pulseLatest.textContent = "—";
     marketSummary.textContent = "No stories match the current filters. Clear the search or switch back to All to reopen the full tape.";
     topicList.innerHTML = "";
-    themeCloud.innerHTML = `<span class="theme-empty">No themes surfacing in the current view.</span>`;
     return;
   }
 
   const recencyStories = sortStoriesByRecency(stories);
   const insightPool = getInsightPool(recencyStories);
   const topics = extractTopics(insightPool);
-  const themes = extractThemes(insightPool);
   const newStories = recencyStories.filter((story) => hoursSince(story.publishedAt) <= 1).length;
   const latestStory = recencyStories[0] || null;
   const mostActive = getMostActiveCategory(insightPool);
@@ -273,7 +217,6 @@ function renderMarketIntelligence(stories) {
 
   marketSummary.textContent = buildMarketSummary(stories, insightPool, topics);
   renderTopics(topics);
-  renderThemeCloud(themes);
 }
 
 function renderTopics(topics) {
@@ -294,35 +237,6 @@ function renderTopics(topics) {
           data-label="${escapeHtml(topic.label)}"
         >
           ${escapeHtml(topic.label)}
-        </button>
-      `;
-    })
-    .join("");
-}
-
-function renderThemeCloud(themes) {
-  if (!themes.length) {
-    themeCloud.innerHTML = `<span class="theme-empty">No themes surfacing yet.</span>`;
-    return;
-  }
-
-  const maxScore = themes[0]?.score || 1;
-
-  themeCloud.innerHTML = themes
-    .slice(0, 7)
-    .map((theme) => {
-      const isActive = state.search === theme.query.toLowerCase();
-      const scale = theme.score / maxScore;
-      const level = scale >= 0.84 ? 3 : scale >= 0.6 ? 2 : 1;
-
-      return `
-        <button
-          class="theme-chip theme-chip--${level}${isActive ? " active" : ""}"
-          type="button"
-          data-query="${escapeHtml(theme.query)}"
-          data-label="${escapeHtml(theme.label)}"
-        >
-          ${escapeHtml(theme.label)}
         </button>
       `;
     })
@@ -396,7 +310,7 @@ function renderFeedRows(stories) {
 
           <div class="feed-source">${escapeHtml(story.desk)}</div>
 
-          <div>
+          <div class="feed-pill-cell">
             <span class="feed-category feed-category--${categoryClass}">
               ${escapeHtml(story.category)}
             </span>
@@ -543,32 +457,6 @@ function extractTopics(stories) {
       const current = counts.get(rule.label) || {
         label: rule.label,
         searchTerm: rule.searchTerm,
-        score: 0,
-      };
-
-      current.score += weight;
-      counts.set(rule.label, current);
-    }
-  }
-
-  return Array.from(counts.values()).sort((left, right) => right.score - left.score);
-}
-
-function extractThemes(stories) {
-  const counts = new Map();
-
-  for (const story of stories) {
-    const haystack = `${story.title} ${story.summary}`.toLowerCase();
-    const weight = storyWeight(story.publishedAt) + (hoursSince(story.publishedAt) <= 2 ? 0.4 : 0);
-
-    for (const rule of THEME_RULES) {
-      if (!rule.patterns.some((pattern) => matchesKeyword(haystack, pattern))) {
-        continue;
-      }
-
-      const current = counts.get(rule.label) || {
-        label: rule.label,
-        query: rule.query,
         score: 0,
       };
 
