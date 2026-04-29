@@ -1,0 +1,18 @@
+{
+  "name": "cordoba-market-watch",
+  "version": "1.0.0",
+  "description": "GitHub Pages market watch for Cordoba Research Group powered by scheduled RSS aggregation.",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:feed",
+    "build:feed": "node scripts/build-feed.mjs",
+    "serve": "python3 -m http.server 4173"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "fast-xml-parser": "^5.7.2"
+  }
+}
