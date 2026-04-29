@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cordoba Research Group | Market Watch</title>
+    <meta
+      name="description"
+      content="Cordoba Market Watch tracks live stories across bonds, commodities, macro policy, central banks, and global risk."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="https://cordobarg.com/" aria-label="Cordoba Research Group home">
+          <img
+            class="brand-logo"
+            src="assets/cordoba-logo/logo.png"
+            alt="Cordoba Research Group"
+          />
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-navigation"
+          data-nav-toggle
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="header-actions" data-header-actions>
+          <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+            <a href="https://cordobarg.com/">Home</a>
+            <a href="#market-watch" class="active" aria-current="page">Market Watch</a>
+            <a href="https://cordobarg.com/research-commentary/">Research</a>
+            <a href="https://cordobarg.com/about/">About Us</a>
+          </nav>
+
+          <a class="cta-button" href="https://cordobarg.com/research-commentary/">
+            <span>View Cordoba Research</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 12h15m0 0-4.5-4.5M19 12l-4.5 4.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell" id="market-watch">
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>
+            Live market stories
+            <span>Cordoba is <em>tracking</em></span>
+          </h1>
+          <p class="hero-summary">
+            Real-time headlines and analysis across bonds, commodities, macro policy and
+            global risk, curated by Cordoba.
+          </p>
+
+          <div class="hero-status">
+            <span class="hero-status__item hero-status__item--live">
+              <span class="status-mark" aria-hidden="true"></span>
+              <span data-refresh-ago>Updated just now</span>
+            </span>
+            <span class="hero-status__separator" aria-hidden="true"></span>
+            <span class="hero-status__item">Refreshes every 5 minutes</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <svg class="market-globe" viewBox="0 0 920 430" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="globe-dots" x="0" y="0" width="7.5" height="7.5" patternUnits="userSpaceOnUse">
+                <circle cx="1.8" cy="1.8" r="1.15" fill="#B7AA91" fill-opacity="0.84" />
+                <circle cx="5.4" cy="5.4" r="1.05" fill="#B7AA91" fill-opacity="0.7" />
+              </pattern>
+              <radialGradient id="hero-halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(552 214) rotate(90) scale(170 300)">
+                <stop offset="0%" stop-color="#D6B575" stop-opacity="0.2" />
+                <stop offset="100%" stop-color="#D6B575" stop-opacity="0" />
+              </radialGradient>
+              <filter id="node-blur" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="8" />
+              </filter>
+            </defs>
+
+            <ellipse cx="555" cy="215" rx="325" ry="176" fill="url(#hero-halo)" />
+
+            <g class="market-globe__mesh" opacity="0.82">
+              <path d="M180 167C208 138 246 116 296 107C336 99 383 104 411 123C432 137 428 164 399 175C369 186 345 204 334 224C323 244 301 250 280 236C251 217 228 221 202 243C178 264 141 268 123 249C108 234 108 213 120 194C136 170 148 149 180 167Z" fill="url(#globe-dots)" />
+              <path d="M254 255C275 243 304 246 322 261C336 272 338 296 324 320C310 343 290 367 274 386C263 399 246 401 236 389C225 377 223 357 228 335C233 308 237 277 254 255Z" fill="url(#globe-dots)" />
+              <path d="M446 148C468 126 500 112 534 116C563 120 584 132 596 151C603 163 601 175 589 182C574 191 563 204 560 220C558 235 547 240 531 233C515 225 501 226 487 235C471 245 450 245 438 231C426 217 425 198 436 181C442 171 451 160 446 148Z" fill="url(#globe-dots)" />
+              <path d="M506 241C522 229 543 223 566 228C590 233 605 247 613 269C622 299 615 335 601 362C592 378 576 384 563 372C550 359 546 340 537 322C528 308 513 298 505 281C498 266 497 251 506 241Z" fill="url(#globe-dots)" />
+              <path d="M582 124C626 93 682 86 739 101C783 113 829 139 853 171C866 190 862 206 845 210C817 218 789 235 767 255C747 276 713 284 685 272C658 260 635 260 610 277C586 292 551 292 528 274C504 254 503 226 529 198C545 181 560 143 582 124Z" fill="url(#globe-dots)" />
+              <path d="M744 304C760 292 782 290 800 298C820 307 832 325 838 347C844 367 832 379 812 378C792 377 774 378 760 391C748 402 730 403 718 391C705 376 701 356 710 337C716 324 728 314 744 304Z" fill="url(#globe-dots)" />
+            </g>
+
+            <g class="market-globe__arcs">
+              <path d="M120 350C229 164 430 65 770 95" />
+              <path d="M170 413C245 168 466 112 882 199" />
+              <path d="M236 398C366 148 599 121 902 324" />
+              <path d="M309 386C442 195 652 185 823 419" />
+              <path d="M98 199C258 88 489 63 748 109" />
+              <path d="M182 142C302 67 490 40 688 66" />
+            </g>
+
+            <g class="market-globe__traces">
+              <path d="M225 110C278 129 291 173 286 211" />
+              <path d="M487 119C492 150 505 191 533 228" />
+              <path d="M682 120C676 152 678 191 695 231" />
+            </g>
+
+            <g class="market-globe__glow">
+              <circle cx="300" cy="168" r="12" filter="url(#node-blur)" />
+              <circle cx="535" cy="213" r="12" filter="url(#node-blur)" />
+              <circle cx="620" cy="136" r="11" filter="url(#node-blur)" />
+              <circle cx="740" cy="168" r="11" filter="url(#node-blur)" />
+              <circle cx="885" cy="220" r="10" filter="url(#node-blur)" />
+            </g>
+
+            <g class="market-globe__nodes">
+              <circle class="network-node" style="--delay: 0s" cx="300" cy="168" r="6.5" />
+              <circle class="network-node" style="--delay: .8s" cx="535" cy="213" r="7" />
+              <circle class="network-node" style="--delay: 1.6s" cx="620" cy="136" r="5.8" />
+              <circle class="network-node" style="--delay: 2.4s" cx="740" cy="168" r="6.2" />
+              <circle class="network-node" style="--delay: 3.2s" cx="885" cy="220" r="5.8" />
+              <circle class="network-node" style="--delay: 1.2s" cx="196" cy="346" r="5.2" />
+              <circle class="network-node" style="--delay: 2s" cx="381" cy="139" r="4.5" />
+            </g>
+
+            <g class="market-globe__micro">
+              <circle class="network-micro" style="--delay: .4s" cx="118" cy="224" r="3.4" />
+              <circle class="network-micro" style="--delay: 1.4s" cx="247" cy="116" r="2.9" />
+              <circle class="network-micro" style="--delay: 2.7s" cx="424" cy="152" r="3.1" />
+              <circle class="network-micro" style="--delay: 3.4s" cx="816" cy="121" r="2.7" />
+              <circle class="network-micro" style="--delay: 2.1s" cx="792" cy="214" r="3.1" />
+              <circle class="network-micro" style="--delay: 3.8s" cx="666" cy="197" r="2.9" />
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section class="market-intelligence" aria-label="Market pulse">
+        <div class="pulse-strip">
+          <article class="pulse-stat">
+            <span class="pulse-stat__label">New in the last hour</span>
+            <strong class="pulse-stat__value" data-pulse-new>—</strong>
+          </article>
+          <article class="pulse-stat">
+            <span class="pulse-stat__label">Most active category</span>
+            <strong class="pulse-stat__value" data-pulse-category>—</strong>
+          </article>
+          <article class="pulse-stat">
+            <span class="pulse-stat__label">Latest headline</span>
+            <strong class="pulse-stat__value" data-pulse-latest>—</strong>
+          </article>
+        </div>
+
+        <div class="market-brief">
+          <div class="market-brief__summary">
+            <span class="brief-label">Market brief</span>
+            <p id="market-summary">Loading the current market brief…</p>
+          </div>
+
+          <div class="market-brief__topics">
+            <span class="brief-label">Trending topics</span>
+            <div class="topic-list" id="trending-topics"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="control-shell" aria-label="Story filters">
+        <label class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm9 16-4.35-4.35"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.7"
+            />
+          </svg>
+          <input
+            id="story-search"
+            type="search"
+            autocomplete="off"
+            placeholder="Search headlines or keywords..."
+          />
+        </label>
+
+        <div class="pill-group" id="category-pills"></div>
+
+        <label class="sort-box">
+          <span class="sort-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M6 4v16m6-11v11m6-16v16M3 8h6m-6 8h6m3-12h6m-6 8h6"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              />
+            </svg>
+          </span>
+          <select id="sort-order" aria-label="Sort stories">
+            <option value="latest">Latest</option>
+            <option value="oldest">Oldest</option>
+          </select>
+          <span class="sort-chevron" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="m7 10 5 5 5-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              />
+            </svg>
+          </span>
+        </label>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <h2>Stories we are watching</h2>
+        </div>
+        <div class="featured-grid" id="featured-grid"></div>
+      </section>
+
+      <section class="section-block" id="live-feed">
+        <div class="section-heading">
+          <h2>Live market feed</h2>
+        </div>
+        <div class="feed-list" id="feed-list"></div>
+      </section>
+
+      <section class="bottom-band">
+        <div class="bottom-band__primary">
+          <div class="band-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <circle cx="32" cy="32" r="31" fill="none" stroke="currentColor" stroke-width="1.4" />
+              <path
+                d="M18 20.5h11.5c3.1 0 5.6 2.5 5.6 5.6v18.4c-1.9-1.4-3.8-2.1-5.8-2.1H18V20.5Zm28 0H34.5c-3.1 0-5.6 2.5-5.6 5.6v18.4c1.9-1.4 3.8-2.1 5.8-2.1H46V20.5Zm-17 4.2v17.6"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              />
+            </svg>
+          </div>
+
+          <div class="bottom-band__copy">
+            <h3>Go deeper with Cordoba Research</h3>
+            <p>
+              Actionable insights, proprietary analysis and forward-looking themes to help you
+              stay ahead of market-moving trends.
+            </p>
+          </div>
+
+          <a class="cta-button cta-button--compact" href="https://cordobarg.com/research-commentary/">
+            <span>View Cordoba Research</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 12h15m0 0-4.5-4.5M19 12l-4.5 4.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <div class="bottom-band__values">
+          <article class="value-point">
+            <span class="value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M4 18h16M6 18V9m6 9V5m6 13v-7"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.8"
+                />
+              </svg>
+            </span>
+            <span>Proprietary Analysis</span>
+          </article>
+
+          <article class="value-point">
+            <span class="value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm-8.2 9h16.4M12 3c2.7 2.4 4.4 5.6 4.4 9s-1.7 6.6-4.4 9c-2.7-2.4-4.4-5.6-4.4-9S9.3 5.4 12 3Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.7"
+                />
+              </svg>
+            </span>
+            <span>Global Macro Perspective</span>
+          </article>
+
+          <article class="value-point">
+            <span class="value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M14.5 5.5 18.5 9.5m-1.1-5.1a8.2 8.2 0 1 1-5.4-.3l5.4.3ZM11 13l6.3-3.5L13.8 16 11 13Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.7"
+                />
+              </svg>
+            </span>
+            <span>Actionable Insights</span>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <noscript>
+      <div class="noscript-banner">
+        This page needs JavaScript enabled to render the live market feed.
+      </div>
+    </noscript>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
