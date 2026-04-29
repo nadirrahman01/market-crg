@@ -281,6 +281,7 @@ function renderFeaturedStories(stories) {
   featuredGrid.innerHTML = featured
     .map((story) => {
       const categoryClass = toClassName(story.category);
+      const image = getStoryImage(story);
       return `
         <article class="story-card">
           <div class="story-card__body">
@@ -299,7 +300,13 @@ function renderFeaturedStories(stories) {
             <p>${escapeHtml(story.summary)}</p>
           </div>
           <a class="story-card__visual" href="${story.url}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(story.title)}">
-            <img src="${getStoryImage(story)}" alt="" loading="lazy" />
+            <img
+              src="${image.src}"
+              data-fallback="${image.fallback}"
+              alt=""
+              loading="lazy"
+              onerror="if (this.dataset.fallback && this.src !== this.dataset.fallback) { this.src = this.dataset.fallback; }"
+            />
           </a>
         </article>
       `;
@@ -591,7 +598,11 @@ function formatAbsoluteDate(value) {
 }
 
 function getStoryImage(story) {
-  return story.image || createPlaceholderDataUri(story.category, story.title);
+  const fallback = createPlaceholderDataUri(story.category, story.title);
+  return {
+    src: story.image || fallback,
+    fallback,
+  };
 }
 
 function createPlaceholderDataUri(category, title) {
