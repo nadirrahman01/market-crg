@@ -27,40 +27,19 @@
           />
         </a>
 
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-navigation"
-          data-nav-toggle
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <div class="header-actions" data-header-actions>
-          <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
-            <a href="https://cordobarg.com/">Home</a>
-            <a href="#market-watch" class="active" aria-current="page">Market Watch</a>
-            <a href="https://cordobarg.com/research-commentary/">Research</a>
-            <a href="https://cordobarg.com/about/">About Us</a>
-          </nav>
-
-          <a class="cta-button" href="https://cordobarg.com/research-commentary/">
-            <span>Read Our Research</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M4 12h15m0 0-4.5-4.5M19 12l-4.5 4.5"
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.7"
-              />
-            </svg>
-          </a>
-        </div>
+        <a class="return-button" href="https://cordobarg.com/" aria-label="Return to Cordoba Research">
+          <span>Return to Cordoba Research</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M20 12H5m0 0 4.5-4.5M5 12l4.5 4.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.7"
+            />
+          </svg>
+        </a>
       </div>
     </header>
 
@@ -87,14 +66,14 @@
         </div>
 
         <div class="hero-visual" aria-hidden="true">
-          <svg class="market-globe" viewBox="0 0 920 430" xmlns="http://www.w3.org/2000/svg">
+          <svg class="market-globe" viewBox="0 0 1240 330" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <pattern id="globe-dots" x="0" y="0" width="7.5" height="7.5" patternUnits="userSpaceOnUse">
-                <circle cx="1.8" cy="1.8" r="1.15" fill="#BAAE97" fill-opacity="0.96" />
-                <circle cx="5.4" cy="5.4" r="1.05" fill="#BAAE97" fill-opacity="0.78" />
+              <pattern id="globe-dots" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.18" fill="#B8AC95" fill-opacity="0.88" />
+                <circle cx="6" cy="6" r="1.05" fill="#B8AC95" fill-opacity="0.72" />
               </pattern>
-              <radialGradient id="hero-halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(552 214) rotate(90) scale(170 300)">
-                <stop offset="0%" stop-color="#D6B575" stop-opacity="0.17" />
+              <radialGradient id="hero-halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(786 178) rotate(90) scale(156 452)">
+                <stop offset="0%" stop-color="#D6B575" stop-opacity="0.14" />
                 <stop offset="100%" stop-color="#D6B575" stop-opacity="0" />
               </radialGradient>
               <filter id="node-blur" x="-40%" y="-40%" width="180%" height="180%">
@@ -102,9 +81,9 @@
               </filter>
             </defs>
 
-            <ellipse cx="555" cy="215" rx="325" ry="176" fill="url(#hero-halo)" />
+            <ellipse cx="786" cy="178" rx="422" ry="130" fill="url(#hero-halo)" />
 
-            <g class="market-globe__mesh" opacity="0.82">
+            <g class="market-globe__mesh" transform="translate(70 -18) scale(1.2 0.74)" opacity="0.84">
               <path d="M180 167C208 138 246 116 296 107C336 99 383 104 411 123C432 137 428 164 399 175C369 186 345 204 334 224C323 244 301 250 280 236C251 217 228 221 202 243C178 264 141 268 123 249C108 234 108 213 120 194C136 170 148 149 180 167Z" fill="url(#globe-dots)" />
               <path d="M254 255C275 243 304 246 322 261C336 272 338 296 324 320C310 343 290 367 274 386C263 399 246 401 236 389C225 377 223 357 228 335C233 308 237 277 254 255Z" fill="url(#globe-dots)" />
               <path d="M446 148C468 126 500 112 534 116C563 120 584 132 596 151C603 163 601 175 589 182C574 191 563 204 560 220C558 235 547 240 531 233C515 225 501 226 487 235C471 245 450 245 438 231C426 217 425 198 436 181C442 171 451 160 446 148Z" fill="url(#globe-dots)" />
@@ -113,7 +92,7 @@
               <path d="M744 304C760 292 782 290 800 298C820 307 832 325 838 347C844 367 832 379 812 378C792 377 774 378 760 391C748 402 730 403 718 391C705 376 701 356 710 337C716 324 728 314 744 304Z" fill="url(#globe-dots)" />
             </g>
 
-            <g class="market-globe__arcs">
+            <g class="market-globe__arcs" transform="translate(70 -18) scale(1.2 0.74)">
               <path d="M120 350C229 164 430 65 770 95" />
               <path d="M170 413C245 168 466 112 882 199" />
               <path d="M236 398C366 148 599 121 902 324" />
@@ -122,13 +101,13 @@
               <path d="M182 142C302 67 490 40 688 66" />
             </g>
 
-            <g class="market-globe__traces">
+            <g class="market-globe__traces" transform="translate(70 -18) scale(1.2 0.74)">
               <path d="M225 110C278 129 291 173 286 211" />
               <path d="M487 119C492 150 505 191 533 228" />
               <path d="M682 120C676 152 678 191 695 231" />
             </g>
 
-            <g class="market-globe__glow">
+            <g class="market-globe__glow" transform="translate(70 -18) scale(1.2 0.74)">
               <circle cx="300" cy="168" r="12" filter="url(#node-blur)" />
               <circle cx="535" cy="213" r="12" filter="url(#node-blur)" />
               <circle cx="620" cy="136" r="11" filter="url(#node-blur)" />
@@ -136,7 +115,7 @@
               <circle cx="885" cy="220" r="10" filter="url(#node-blur)" />
             </g>
 
-            <g class="market-globe__nodes">
+            <g class="market-globe__nodes" transform="translate(70 -18) scale(1.2 0.74)">
               <circle class="network-node" style="--delay: 0s" cx="300" cy="168" r="6.5" />
               <circle class="network-node" style="--delay: .8s" cx="535" cy="213" r="7" />
               <circle class="network-node" style="--delay: 1.6s" cx="620" cy="136" r="5.8" />
@@ -146,7 +125,7 @@
               <circle class="network-node" style="--delay: 2s" cx="381" cy="139" r="4.5" />
             </g>
 
-            <g class="market-globe__micro">
+            <g class="market-globe__micro" transform="translate(70 -18) scale(1.2 0.74)">
               <circle class="network-micro" style="--delay: .4s" cx="118" cy="224" r="3.4" />
               <circle class="network-micro" style="--delay: 1.4s" cx="247" cy="116" r="2.9" />
               <circle class="network-micro" style="--delay: 2.7s" cx="424" cy="152" r="3.1" />
@@ -181,15 +160,8 @@
           </div>
 
           <div class="market-brief__topics">
-            <div class="topic-stack">
-              <span class="brief-label">Trending topics</span>
-              <div class="topic-list" id="trending-topics"></div>
-            </div>
-
-            <div class="theme-cluster">
-              <span class="brief-label">Themes surfacing now</span>
-              <div class="theme-cloud" id="theme-cloud"></div>
-            </div>
+            <span class="brief-label">Trending topics</span>
+            <div class="topic-list" id="trending-topics"></div>
           </div>
         </div>
       </section>
